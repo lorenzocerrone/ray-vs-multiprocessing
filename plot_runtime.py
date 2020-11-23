@@ -42,7 +42,6 @@ def make_runtime_plot(num_workers=(1, 2, 4), _step_size=1):
 
 if __name__ == "__main__":
     step_size = 1
-    max_workers = 4
     num_labels = -2
     path = './data/sample_ovules.h5'
 
@@ -52,7 +51,6 @@ if __name__ == "__main__":
     labels_idx = np.unique(segmentation)[1:num_labels+1]
 
     print(f"Total num labels: {len(labels_idx)}, "
-          f"Max workers: {max_workers}, "
           f"Step-size: {step_size}")
 
-    make_runtime_plot([1, 2, 4], step_size)
+    make_runtime_plot([1, 2, 4, 10, 15, 20, 30, 40], step_size)

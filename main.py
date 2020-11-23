@@ -11,14 +11,17 @@ def main(_max_workers, _step_size):
     timer = time.time()
     sc_seg2mesh(labels_idx, segmentation, step_size=_step_size)
     sc_runtime = time.time() - timer
+    time.sleep(1)
 
     timer = time.time()
     mp_seg2mesh(labels_idx, segmentation, step_size=_step_size, max_workers=_max_workers)
     mp_runtime = time.time() - timer
+    time.sleep(1)
 
     timer = time.time()
     ray_seg2mesh(labels_idx, segmentation, step_size=_step_size, max_workers=_max_workers)
     ray_runtime = time.time() - timer
+    time.sleep(1)
 
     return {"Single Core": sc_runtime,
             "Multi Core": mp_runtime,
@@ -27,8 +30,8 @@ def main(_max_workers, _step_size):
 
 if __name__ == "__main__":
     step_size = 1
-    max_workers = 4
-    num_labels = 24
+    max_workers = 10
+    num_labels = 50
     path = './data/sample_ovules.h5'
 
     with h5py.File(path, 'r') as f:

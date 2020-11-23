@@ -5,7 +5,8 @@ from concurrent.futures import ProcessPoolExecutor
 
 
 def sc_seg2mesh(idx_list, segmentation, step_size=2):
-    return [seg2mesh(idx, segmentation, step_size) for idx in tqdm.tqdm(idx_list)]
+    results = [seg2mesh(idx, segmentation, step_size) for idx in tqdm.tqdm(idx_list)]
+    return results
 
 
 def mp_seg2mesh(idx_list, segmentation, step_size=2, max_workers=2):
