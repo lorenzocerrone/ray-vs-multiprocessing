@@ -18,3 +18,18 @@ Process by process memory
 mprof run --multiprocessing main.py 
 mprof plot
 ```
+
+# run on cluster 
+1. on the head
+```
+ray start --head --port=6379
+```
+2. on the children
+```
+copy out from ray start in the head
+```
+3. on the code 
+```
+ray.init(address="auto")
+```
+4. run normally
